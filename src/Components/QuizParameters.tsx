@@ -1,33 +1,34 @@
 import React from 'react';
 import {useState} from 'react';
+import { parametersType } from '../Types/types';
 
-export const QuizParameters: React.FC<any> = ({callback}) => {
+export const QuizParameters: React.FC<parametersType> = ({callback}) => {
 
     let [number, setNumber] = useState("5");
     let [category, setCategory] = useState("9");
     let [difficulty, setDifficulty] = useState("easy");
     let [type, setType] = useState("multiple");
 
-    const handleNumber = (e:any) => {
+    const handleNumber = (e:React.ChangeEvent<HTMLSelectElement>) => {
         setNumber(e.target.value);
     }
 
-    const handleCategory = (e:any) => {
+    const handleCategory = (e:React.ChangeEvent<HTMLSelectElement>) => {
         setCategory(e.target.value);
     }
 
-    const handleDifficulty = (e:any) => {
+    const handleDifficulty = (e:React.ChangeEvent<HTMLSelectElement>) => {
         setDifficulty(e.target.value);
     }
 
-    const handleType = (e:any) => {
+    const handleType = (e:React.ChangeEvent<HTMLSelectElement>) => {
         setType(e.target.value);
     }
 
 
 
 return (
-    <form onSubmit={(e:any) => callback(e, number, category, difficulty, type) } className="parameters-container">
+    <form onSubmit={(e:React.FormEvent<EventTarget>) => callback(e, number, category, difficulty, type) } className="parameters-container">
     {
       <div >
         <label>Number of Questions: </label>
@@ -54,7 +55,6 @@ return (
         <br />
         <label>Select Type: </label>
         <select defaultValue="multiple" onChange={handleType}>
-          {/* <option value="">Any Type</option> */}
           <option value="multiple">Multiple Choice</option>
           <option value="boolean">True / False</option>
         </select>

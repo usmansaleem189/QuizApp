@@ -1,6 +1,7 @@
 import React from 'react';
+import { scoreType } from '../Types/types';
 
-export const ScoreCard: React.FC<any> = ({score, total, callback}) => {
+export const ScoreCard: React.FC<scoreType> = ({score, total, callback}) => {
 
 return (
     <div className="Score-container">

@@ -1,17 +1,17 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { getQuizDetails } from '../src/Services/quiz-service'
 import { QuestionCard } from './Components/QuestionCard';
 import { QuizParameters } from './Components/QuizParameters';
 import { ScoreCard } from './Components/ScoreCard';
-
+import {QuestionType} from './Types/types';
 
 
 
 function App() {
 
-  let [quiz, setQuiz] = useState<any>([]);
+  let [quiz, setQuiz] = useState<QuestionType[]>([]);
   // let [number, setNumber] = useState("5");
   // let [category, setCategory] = useState("9");
   // let [difficulty, setDifficulty] = useState("easy");
@@ -23,8 +23,8 @@ function App() {
 
 
 
-  async function fetchData(number: any, difficulty: any, category: any, type: any) {
-    const questions: any = await getQuizDetails(number, difficulty, category, type);
+  async function fetchData(number: string, difficulty: string, category: string, type: string) {
+    const questions: QuestionType[] = await getQuizDetails(number, difficulty, category, type);
     console.log(questions);
     console.log("fetchData Called")
     setQuiz(questions);
@@ -35,7 +35,7 @@ function App() {
   //   fetchData();
   // }, [])
 
-  const handleSubmit = (e: any, submittedAns: any) => {
+  const handleSubmit = (e: React.FormEvent<EventTarget>, submittedAns: string) => {
     e.preventDefault();
     if (submittedAns === quiz[questionIndex].correctAnswer) {
       console.log("True");
@@ -56,7 +56,7 @@ function App() {
   }
 
 
-  const loadQuiz = (e: any, number: any, category: any, difficulty: any, type: any) => {
+  const loadQuiz = (e: React.FormEvent<EventTarget>, number: string, category: string, difficulty: string, type: string) => {
     e.preventDefault();
     console.log(number, category, difficulty, type);
 
@@ -74,46 +74,7 @@ function App() {
 
   }
 
-  // if (!parameters) {
-  //   return (
-  //     <div>
-  //       <h1>Quiz App</h1>
-  //       <QuizParameters
-  //         callback={loadQuiz}
-  //       />
-  //     </div>
-  //   )
-  // }
 
-
-  // if (quiz.length && !gameOver)
-  //   return (
-  //     <div>
-  //       <h1>Quiz App</h1>
-  //       <QuestionCard
-  //         question={quiz[questionIndex].question}
-  //         options={quiz[questionIndex].options}
-  //         callback={handleSubmit}
-  //       />
-  //     </div>
-  //   )
-
-  // if (gameOver)
-  //   return (
-  //     <div>
-  //     <h1>Quiz App</h1>
-  //     <ScoreCard
-  //       score={score}
-  //       callback={handleRestart}
-  //     />
-  //     </div>
-  //   )
-
-  // return (
-  //   <div>
-  //     Loading...
-  //   </div>
-  // );
 
   return (
     <div className="App">

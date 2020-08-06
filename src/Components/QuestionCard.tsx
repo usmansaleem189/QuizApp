@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import {questionPropsType} from './../Types/types'
 
-export const QuestionCard: React.FC<any> = ({question, options, callback}) => {
+export const QuestionCard: React.FC<questionPropsType> = ({question, options, callback}) => {
 
     let [selectedAns, setSelectedAns] = useState("");
 
-    const hanldeSelection = (e: any) => {
+    const hanldeSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
         // console.log(e.target.value);
         setSelectedAns(e.target.value);
     }
@@ -16,8 +17,8 @@ return (
             {question}
         </div>
 
-        <form onSubmit={(e:any) => callback(e, selectedAns) }>
-            {options.map((option:any, ind: number)=> {
+        <form onSubmit={(e:React.FormEvent<EventTarget>) => callback(e, selectedAns) }>
+            {options.map((option:string, ind: number)=> {
                 return (
                     <div key={ind}>
                         <input 
