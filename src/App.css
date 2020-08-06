@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+body {
+    background-image: linear-gradient(270deg, #fff, #87f1ff);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    }
+
+.App{
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App > h1{
+    text-shadow: 4px 2px 5px #917373;
+    font-family: Fredericka the Great, Arial, Helvetica, sans-serif;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .question-container {
+    text-align: left;
+    max-width: 500px;
+    box-shadow: 10px 10px 20px #977979;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-image: linear-gradient(180deg, #fff, #cab65f);
+    word-wrap: break-word;
+    border-radius: 15mm;
   }
-  to {
-    transform: rotate(360deg);
+
+  .question-container > div{
+    margin: 10px auto;
+    font-weight: bold;
+    color: rgb(5, 56, 71);
   }
-}
+
+  .question-container > form{
+    margin: 20px auto;
+    color: rgb(5, 56, 71);
+  }
+
+  .question-container > form > div{
+    margin: 5px auto;
+  }
+
+  .question-container > form input[type="submit"]{
+    width: 100%;
+    border: none;
+    background-color: rgb(63, 63, 124);
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 20px;
+  }
+
+  .parameters-container {
+    text-align: left;
+    max-width: 500px;
+    box-shadow: 10px 10px 20px #977979;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-image: linear-gradient(180deg, #fff, #cab65f);
+    border-radius: 15mm;
+  }
+
+  .parameters-container input[type="submit"]{
+    width: 100%;
+    border: none;
+    background-color: rgb(63, 63, 124);
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 20px;
+  }
+
+  .Score-container {
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 10px 10px 20px #977979;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-image: linear-gradient(180deg, #fff, #cab65f);
+    border-radius: 15mm;
+  }
+
+  .Score-container div{
+    margin: 0 auto;
+  }
+
+  .Score-container button{
+    width: 50%;
+    border: none;
+    background-color: rgb(16, 224, 138);
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+  }
